@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+   <bottom>
+      <TableView prefHeight="200.0" prefWidth="375.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Naslov" />
+          <TableColumn prefWidth="75.0" text="Opis" />
+            <TableColumn prefWidth="75.0" text="Snaga (ks)" />
+            <TableColumn prefWidth="75.0" text="Stanje" />
+            <TableColumn prefWidth="75.0" text="Cijena" />
+        </columns>
+      </TableView>
+   </bottom>
+   <top>
+      <Label text="Pretraga automobila" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>
