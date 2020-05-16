@@ -1,6 +1,8 @@
 package hr.java.vjezbe.util;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
@@ -14,6 +16,8 @@ import hr.java.vjezbe.entitet.Artikl;
 import hr.java.vjezbe.entitet.Automobil;
 import hr.java.vjezbe.entitet.Kategorija;
 import hr.java.vjezbe.entitet.Korisnik;
+import hr.java.vjezbe.entitet.PoslovniKorisnik;
+import hr.java.vjezbe.entitet.PrivatniKorisnik;
 import hr.java.vjezbe.entitet.Prodaja;
 import hr.java.vjezbe.entitet.Stan;
 import hr.java.vjezbe.entitet.Stanje;
@@ -131,5 +135,77 @@ public class Datoteke {
 	}
 	return listaArtikala;
 
+    }
+    public static List<Korisnik> dohvatiKorisnike() {
+	List<String> stringListaKorisnika = new ArrayList<>();
+	List<Korisnik> listaKorisnika = new ArrayList<>();
+
+	Long idPrivatniKorisnik = null;
+	String imePrivatniKorisnik = null;
+	String prezimePrivatniKorisnik = null;
+	String emailPrivatniKorisnik = null;
+	String telefonPrivatniKorisnik = null;
+
+	Long idPoslovniKorisnik = null;
+	String nazivPoslovniKorisnik = null;
+	String webPoslovniKorisnik = null;
+	String emailPoslovniKorisnik = null;
+	String telefonPoslovniKorisnik = null;
+
+	try (BufferedReader bufferedCitac = new BufferedReader(new FileReader(FILE_KORISNICI));) {
+//	    FileReader citac = new FileReader(FILE_PRIVATNI_KORISNICI);
+//	    BufferedReader bufferedCitac = new BufferedReader(citac);
+	    String linija;
+	    while ((linija = bufferedCitac.readLine()) != null) {
+		stringListaKorisnika.add(linija);
+	    }
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+	int x = 0;
+	for (int j = x; j < stringListaKorisnika.size(); j++) {
+	    if (x < stringListaKorisnika.size()) {
+		Integer tipKorisnika = Integer.parseInt(stringListaKorisnika.get(0 + x));
+		if (tipKorisnika == 1) {
+		    for (int i = x; i < x + 6; i++) {
+			if (i == x + 1) {
+			    idPrivatniKorisnik = Long.parseLong(stringListaKorisnika.get(i));
+			} else if (i == x + 2) {
+			    imePrivatniKorisnik = stringListaKorisnika.get(i);
+			} else if (i == x + 3) {
+			    prezimePrivatniKorisnik = stringListaKorisnika.get(i);
+			} else if (i == x + 4) {
+			    emailPrivatniKorisnik = stringListaKorisnika.get(i);
+			} else if (i == x + 5) {
+			    telefonPrivatniKorisnik = stringListaKorisnika.get(i);
+			}
+		    }
+		    listaKorisnika.add(new PrivatniKorisnik(idPrivatniKorisnik, imePrivatniKorisnik,
+			    prezimePrivatniKorisnik, emailPrivatniKorisnik, telefonPrivatniKorisnik));
+		    x += 6;
+		} else if (tipKorisnika == 2) {
+		    for (int i = x; i < x + 6; i++) {
+			if (i == x + 1) {
+			    idPoslovniKorisnik = Long.parseLong(stringListaKorisnika.get(i));
+			} else if (i == x + 2) {
+			    nazivPoslovniKorisnik = stringListaKorisnika.get(i);
+			} else if (i == x + 3) {
+			    webPoslovniKorisnik = stringListaKorisnika.get(i);
+			} else if (i == x + 4) {
+			    emailPoslovniKorisnik = stringListaKorisnika.get(i);
+			} else if (i == x + 5) {
+			    telefonPoslovniKorisnik = stringListaKorisnika.get(i);
+			}
+		    }
+		    listaKorisnika.add(new PoslovniKorisnik(idPoslovniKorisnik, nazivPoslovniKorisnik,
+			    webPoslovniKorisnik, emailPoslovniKorisnik, telefonPoslovniKorisnik));
+		    x += 6;
+		}
+
+	    } else {
+		break;
+	    }
+	}
+	return listaKorisnika;
     }
 }

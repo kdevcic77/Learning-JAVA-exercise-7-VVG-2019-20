@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.java.vjezbe.javafx.PretragaPoslovnihKorisnikaController">
+   <top>
+      <Label text="Pretraga poslovnih korisnika" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <TableView fx:id="poslovniKorisnikTableView" prefHeight="200.0" prefWidth="294.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="nazivTableColumn" prefWidth="75.0" text="Naziv" />
+          <TableColumn fx:id="webTableColumn" prefWidth="75.0" text="Web" />
+            <TableColumn fx:id="emailTableColumn" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="telefonTableColumn" prefWidth="75.0" text="Telefon" />
+        </columns>
+      </TableView>
+   </bottom>
+</BorderPane>

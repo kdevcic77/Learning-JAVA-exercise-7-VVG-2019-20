@@ -9,14 +9,15 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 
     private static Stage mainStage;
-
+    
     @Override
     public void start(Stage primaryStage) {
 	mainStage = primaryStage;
 	try {
 	    BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("pocetniEkran.fxml"));
-	    Scene scene = new Scene(root, 400, 400);
+	    Scene scene = new Scene(root, 400, 500);
 	    scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+	    mainStage.setTitle("Oglasnik");
 	    primaryStage.setScene(scene);
 	    primaryStage.show();
 	} catch (Exception e) {
@@ -28,7 +29,13 @@ public class Main extends Application {
 	launch(args);
     }
 
-    public static Stage getMainStage() {
-	return mainStage;
+    public static void setMainStage(BorderPane root) {
+	Scene scene = new Scene(root,400,500);
+	mainStage.setScene(scene);
+	mainStage.show();
     }
+    
+    /*
+     * public static Stage getMainStage() { return mainStage; }
+     */
 }

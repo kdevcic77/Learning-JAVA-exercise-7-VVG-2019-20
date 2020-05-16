@@ -39,7 +39,7 @@ public class PretragaAutomobilaController {
 	List<Automobil> listaAutomobila = Datoteke.dohvatiArtikle().stream().filter(p -> p instanceof Automobil)
 		.map(sc -> (Automobil) sc).collect(Collectors.toList());
 	
-	ObservableList<Automobil> listaAutomobilaObservable = FXCollections.observableList(listaAutomobila);
+	ObservableList<Automobil> listaAutomobilaObservable = FXCollections.observableArrayList(listaAutomobila);
 	
 	automobilTableView.setItems(listaAutomobilaObservable);
     }

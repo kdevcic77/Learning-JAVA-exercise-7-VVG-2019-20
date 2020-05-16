@@ -6,23 +6,23 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.java.vjezbe.javafx.PretragaAutomobilaController">
-   <bottom>
-      <TableView fx:id="automobilTableView" prefHeight="200.0" prefWidth="375.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn fx:id="naslovTableColumn" prefWidth="75.0" text="Naslov" />
-          <TableColumn fx:id="opisTableColumn" prefWidth="75.0" text="Opis" />
-            <TableColumn fx:id="snagaKsTableColumn" prefWidth="75.0" text="Snaga (ks)" />
-            <TableColumn fx:id="stanjeTableColumn" prefWidth="75.0" text="Stanje" />
-            <TableColumn fx:id="cijenaTableColumn" prefWidth="75.0" text="Cijena" />
-        </columns>
-      </TableView>
-   </bottom>
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hr.java.vjezbe.javafx.PretragaStanovaController">
    <top>
-      <Label text="Pretraga automobila" BorderPane.alignment="CENTER">
+      <Label text="Pretraga stanova" BorderPane.alignment="CENTER">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
    </top>
+   <bottom>
+      <TableView fx:id="stanTableView" prefHeight="200.0" prefWidth="372.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="naslovTableColumn" prefWidth="75.0" text="Naslov" />
+          <TableColumn fx:id="opisTableColumn" prefWidth="75.0" text="Opis" />
+            <TableColumn fx:id="kvadraturaTableColumn" prefWidth="75.0" text="Kvadratura" />
+            <TableColumn fx:id="stanjeTableColumn" prefWidth="75.0" text="Stanje" />
+            <TableColumn fx:id="cijenaTableColumn" prefWidth="75.0" text="Cijena" />
+        </columns>
+      </TableView>
+   </bottom>
 </BorderPane>
